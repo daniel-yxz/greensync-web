@@ -1,0 +1,280 @@
+.sobre-container {
+  min-height: 100vh;
+  padding: 20px;
+  padding-bottom: 80px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.sobre-header {
+  text-align: center;
+  margin-bottom: 30px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.sobre-header h1 {
+  color: #2c5530;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.sobre-header h2 {
+  color: #666;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.sobre-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sobre-section {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.sobre-descricao {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.info-item {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.info-item strong {
+  color: #2c5530;
+}
+
+.sobre-section h3 {
+  color: #2c5530;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  border-left: 4px solid #2c5530;
+  padding-left: 10px;
+}
+
+.recursos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recurso-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.recurso-icone {
+  font-size: 2rem;
+  margin-top: 5px;
+}
+
+.recurso-item h4 {
+  color: #2c5530;
+  margin-bottom: 5px;
+}
+
+.recurso-item p {
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.tecnologias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.tecnologia-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.tecnologia-item:hover {
+  transform: translateY(-2px);
+}
+
+.tecnologia-icone {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.tecnologia-nome {
+  color: #2c5530;
+  font-weight: 500;
+  text-align: center;
+}
+
+.equipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.membro-item {
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.membro-item:hover {
+  transform: translateY(-2px);
+}
+
+.membro-avatar {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.membro-info h4 {
+  color: #2c5530;
+  margin-bottom: 5px;
+}
+
+.membro-info p {
+  color: #666;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.redes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.rede-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.rede-item:hover {
+  background: #e8f5e8;
+  transform: translateY(-2px);
+}
+
+.rede-icone {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.acoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.acao-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.acao-item:hover {
+  background: #e8f5e8;
+  transform: translateY(-2px);
+}
+
+.acao-icone {
+  font-size: 1.5rem;
+}
+
+.legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.legal-link {
+  color: #2c5530;
+  text-decoration: none;
+  padding: 10px 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.legal-link:hover {
+  background: #e8f5e8;
+  text-decoration: underline;
+}
+
+.sobre-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.sobre-footer p {
+  color: #666;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .sobre-container {
+    padding: 10px;
+    padding-bottom: 80px;
+  }
+  
+  .info-grid,
+  .tecnologias-grid,
+  .equipe-grid,
+  .redes-grid,
+  .acoes-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .legal-links {
+    flex-direction: column;
+  }
+}

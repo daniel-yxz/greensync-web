@@ -1,0 +1,256 @@
+.ajuda-container {
+  min-height: 100vh;
+  padding: 20px;
+  padding-bottom: 80px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.ajuda-header {
+  text-align: center;
+  margin-bottom: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.ajuda-header h1 {
+  color: #2c5530;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.ajuda-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.ajuda-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ajuda-section {
+  margin-bottom: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.ajuda-section h2 {
+  color: #2c5530;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  border-left: 4px solid #2c5530;
+  padding-left: 10px;
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.contato-item {
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.contato-item:hover {
+  transform: translateY(-2px);
+}
+
+.contato-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.contato-item h3 {
+  color: #2c5530;
+  margin-bottom: 5px;
+}
+
+.contato-item p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.faq-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.faq-pergunta {
+  padding: 15px 20px;
+  background: #f8f9fa;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  list-style: none;
+  position: relative;
+}
+
+.faq-pergunta::after {
+  content: '›';
+  position: absolute;
+  right: 20px;
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-pergunta::after {
+  transform: rotate(-90deg);
+}
+
+.faq-resposta {
+  padding: 15px 20px;
+  background: white;
+  color: #666;
+  line-height: 1.5;
+}
+
+.recursos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.recurso-item {
+  text-decoration: none;
+  color: inherit;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.recurso-item:hover {
+  background: #e8f5e8;
+  transform: translateY(-2px);
+}
+
+.recurso-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.recurso-item h3 {
+  color: #2c5530;
+  margin-bottom: 5px;
+}
+
+.recurso-item p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.feedback-item {
+  background: #f8f9fa;
+  border: none;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.feedback-item:hover {
+  background: #e8f5e8;
+  transform: translateY(-2px);
+}
+
+.feedback-icon {
+  font-size: 2rem;
+}
+
+.feedback-item h3 {
+  color: #2c5530;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.feedback-item p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.atendimento-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.atendimento-item {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.atendimento-item h3 {
+  color: #2c5530;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.atendimento-item p {
+  color: #666;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.ajuda-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.ajuda-footer p {
+  color: #666;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .ajuda-container {
+    padding: 10px;
+    padding-bottom: 80px;
+  }
+  
+  .contato-grid,
+  .recursos-grid,
+  .feedback-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .atendimento-info {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}

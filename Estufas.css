@@ -1,0 +1,179 @@
+.estufas-container {
+  min-height: 100vh;
+  padding: 20px;
+  padding-bottom: 80px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.estufas-header {
+  text-align: center;
+  margin-bottom: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.estufas-header h1 {
+  color: #2c5530;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.estufas-header p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.estufas-info {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #666;
+  font-weight: 500;
+}
+
+.estufas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.estufa-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.estufa-card:hover {
+  transform: translateY(-2px);
+}
+
+.estufa-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.estufa-number {
+  background: #2c5530;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.estufa-titulo {
+  flex: 1;
+}
+
+.estufa-titulo h3 {
+  color: #2c5530;
+  margin-bottom: 5px;
+  font-size: 1.3rem;
+}
+
+.estufa-localizacao {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.estufa-plants {
+  background: #e8f5e8;
+  color: #2c5530;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.estufa-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.estufa-stat {
+  text-align: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c5530;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.sensores-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.sensor-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.sensor-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.sensor-status {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.estufa-descricao {
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .estufas-container {
+    padding: 10px;
+    padding-bottom: 80px;
+  }
+  
+  .estufa-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .sensores-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .estufa-stats {
+    grid-template-columns: 1fr;
+  }
+}

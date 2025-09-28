@@ -73,14 +73,14 @@ export function Perfil() {
         <div className="actions-section">
           <h3>Ações Rápidas</h3>
           <div className="actions-list">
-            <button className="action-btn">
-              ✏️ Editar Perfil
-            </button>
-            <button className="action-btn">
+            <button className="action-btn" onClick={() => window.location.href = '/configuracoes'}>
               ⚙️ Configurações
             </button>
-            <button className="action-btn">
+            <button className="action-btn" onClick={() => window.location.href = '/ajuda'}>
               ❓ Ajuda & Suporte
+            </button>
+            <button className="action-btn" onClick={() => window.location.href = '/sobre'}>
+              ℹ️ Sobre o App
             </button>
             <button className="action-btn logout-btn" onClick={handleLogout}>
               🚪 Sair da Conta

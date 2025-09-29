@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { BottomNavigation } from '../components/BottomNavigation';
 import './AjudaSuporte.css';
 
 export function AjudaSuporte() {
+  const navigate = useNavigate();
+  
   const faqItems = [
     {
       pergunta: "Como adicionar uma nova planta?",
@@ -26,8 +29,27 @@ export function AjudaSuporte() {
     }
   ];
 
+  const handleVoltar = () => {
+    navigate(-1); // Volta para a página anterior
+  };
+
+  const handleReportarProblema = () => {
+    alert('Funcionalidade de reportar problema em desenvolvimento!');
+  };
+
+  const handleSugerirMelhoria = () => {
+    alert('Funcionalidade de sugerir melhoria em desenvolvimento!');
+  };
+
   return (
     <div className="ajuda-container">
+      {/* Botão Voltar */}
+      <div className="back-button-container">
+        <button onClick={handleVoltar} className="back-button">
+          ← Voltar
+        </button>
+      </div>
+
       <header className="ajuda-header">
         <h1>Ajuda & Suporte</h1>
         <p>Estamos aqui para ajudar você!</p>
@@ -77,16 +99,16 @@ export function AjudaSuporte() {
         <section className="ajuda-section">
           <h2>Recursos de Ajuda</h2>
           <div className="recursos-grid">
-            <Link to="/manual" className="recurso-item">
+            <button className="recurso-item" onClick={() => alert('Manual em desenvolvimento!')}>
               <span className="recurso-icon">📖</span>
               <h3>Manual do Usuário</h3>
               <p>Guia completo de uso</p>
-            </Link>
-            <Link to="/tutoriais" className="recurso-item">
+            </button>
+            <button className="recurso-item" onClick={() => alert('Tutoriais em desenvolvimento!')}>
               <span className="recurso-icon">🎥</span>
               <h3>Tutoriais em Vídeo</h3>
               <p>Aprenda visualmente</p>
-            </Link>
+            </button>
           </div>
         </section>
 
@@ -94,14 +116,14 @@ export function AjudaSuporte() {
         <section className="ajuda-section">
           <h2>Feedback</h2>
           <div className="feedback-grid">
-            <button className="feedback-item">
+            <button className="feedback-item" onClick={handleReportarProblema}>
               <span className="feedback-icon">🐛</span>
               <div>
                 <h3>Reportar Problema</h3>
                 <p>Encontrou um bug? Nos avise!</p>
               </div>
             </button>
-            <button className="feedback-item">
+            <button className="feedback-item" onClick={handleSugerirMelhoria}>
               <span className="feedback-icon">💡</span>
               <div>
                 <h3>Sugerir Melhoria</h3>

@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BottomNavigation } from '../components/BottomNavigation';
 import './Configuracoes.css';
 
 export function Configuracoes() {
+  const navigate = useNavigate();
   const [notificacoesPush, setNotificacoesPush] = useState(true);
   const [notificacoesEmail, setNotificacoesEmail] = useState(true);
   const [modoEscuro, setModoEscuro] = useState(false);
@@ -17,8 +18,24 @@ export function Configuracoes() {
     }
   };
 
+  const handleVoltar = () => {
+    navigate(-1);
+  };
+
+  const handleExportarDados = () => {
+    alert('Funcionalidade de exportação em desenvolvimento!');
+  };
+
   return (
     <div className="configuracoes-container">
+      
+      {/* Botão Voltar */}
+      <div className="back-button-container">
+        <button onClick={handleVoltar} className="back-button">
+          ← Voltar
+        </button>
+      </div>
+
       <header className="configuracoes-header">
         <h1>Configurações</h1>
       </header>
@@ -28,7 +45,7 @@ export function Configuracoes() {
         <section className="config-section">
           <h2>Usuário</h2>
           <div className="config-list">
-            <Link to="/perfil/editar" className="config-item">
+            <Link to="/configuracoes/editar-perfil" className="config-item">
               <div className="config-info">
                 <span className="config-icon">👤</span>
                 <div>
@@ -39,7 +56,7 @@ export function Configuracoes() {
               <span className="config-arrow">›</span>
             </Link>
 
-            <Link to="/alterar-senha" className="config-item">
+            <Link to="/configuracoes/alterar-senha" className="config-item">
               <div className="config-info">
                 <span className="config-icon">🔒</span>
                 <div>
@@ -50,7 +67,7 @@ export function Configuracoes() {
               <span className="config-arrow">›</span>
             </Link>
 
-            <button className="config-item">
+            <button className="config-item" onClick={handleExportarDados}>
               <div className="config-info">
                 <span className="config-icon">📤</span>
                 <div>

@@ -1,203 +1,204 @@
-.sobre-index-container {
+.configuracoes-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   padding: 20px;
+  padding-bottom: 80px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
-.sobre-index-content {
+/* Botão Voltar */
+.back-button-container {
   max-width: 600px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.sobre-index-header {
-  background: #2c5530;
-  color: white;
-  padding: 30px 20px;
-  text-align: center;
-  position: relative;
+  margin: 0 auto 20px auto;
 }
 
 .back-button {
-  position: absolute;
-  left: 20px;
-  top: 30px;
-  color: white;
+  display: inline-flex;
+  align-items: center;
+  color: #2c5530;
   text-decoration: none;
-  font-weight: 500;
-  padding: 8px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: 2px solid #2c5530;
+  border-radius: 25px;
   transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
 }
 
 .back-button:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.sobre-index-header h1 {
-  margin: 0;
-  font-size: 2rem;
-}
-
-.sobre-index-main {
-  padding: 30px;
-}
-
-.app-info {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.app-info h2 {
-  color: #2c5530;
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.app-tagline {
-  color: #666;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  font-style: italic;
-}
-
-.app-description {
-  color: #666;
-  line-height: 1.6;
-  text-align: left;
-}
-
-.recursos-section {
-  margin-bottom: 40px;
-}
-
-.recursos-section h3 {
-  color: #2c5530;
-  margin-bottom: 25px;
-  text-align: center;
-  font-size: 1.5rem;
-}
-
-.recurso-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 25px;
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-
-.recurso-item:hover {
+  background: #2c5530;
+  color: white;
   transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.recurso-icon {
-  font-size: 2rem;
-  flex-shrink: 0;
-}
-
-.recurso-content h4 {
-  color: #2c5530;
-  margin-bottom: 8px;
-  font-size: 1.1rem;
-}
-
-.recurso-content p {
-  color: #666;
-  margin: 0;
-  line-height: 1.5;
-}
-
-.info-section {
+.configuracoes-header {
+  text-align: center;
   margin-bottom: 30px;
 }
 
-.info-section h3 {
+.configuracoes-header h1 {
   color: #2c5530;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
-.info-grid {
-  display: grid;
-  gap: 15px;
+.configuracoes-content {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.info-item {
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
+/* Restante do CSS permanece igual */
+.config-section {
+  margin-bottom: 30px;
 }
 
-.info-item strong {
+.config-section h2 {
   color: #2c5530;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  padding-left: 10px;
+  border-left: 4px solid #2c5530;
 }
 
-.sobre-index-footer {
-  border-top: 1px solid #eee;
-  padding: 30px;
-  text-align: center;
+.config-list {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.start-button {
-  display: inline-block;
-  background: #2c5530;
-  color: white;
-  padding: 15px 30px;
-  border-radius: 50px;
+.config-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
   text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  margin-bottom: 20px;
+  color: inherit;
+  background: white;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  border: none;
   width: 100%;
-  max-width: 250px;
 }
 
-.start-button:hover {
-  background: #1e3a22;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(44, 85, 48, 0.3);
+.config-item:hover {
+  background: #f8f9fa;
 }
 
-.sobre-index-footer p {
-  color: #999;
+.config-item:last-child {
+  border-bottom: none;
+}
+
+.config-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.config-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  text-align: center;
+}
+
+.config-info h3 {
+  color: #333;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.config-info p {
+  color: #666;
   font-size: 0.9rem;
-  margin: 0;
 }
 
-/* Responsividade */
+.config-arrow {
+  font-size: 1.5rem;
+  color: #999;
+  font-weight: bold;
+}
+
+.toggle-item {
+  cursor: pointer;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2c5530;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
 @media (max-width: 768px) {
-  .sobre-index-container {
+  .configuracoes-container {
     padding: 10px;
+    padding-bottom: 80px;
   }
   
-  .sobre-index-main {
-    padding: 20px;
-  }
-  
-  .recurso-item {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-  
-  .sobre-index-header {
-    padding: 25px 15px;
+  .back-button-container {
+    margin: 0 auto 15px auto;
+    padding: 0 10px;
   }
   
   .back-button {
-    position: relative;
-    left: auto;
-    top: auto;
-    margin-bottom: 15px;
-    display: inline-block;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .config-item {
+    padding: 15px;
+  }
+  
+  .config-info {
+    gap: 10px;
+  }
+  
+  .config-icon {
+    font-size: 1.3rem;
+    width: 35px;
   }
 }

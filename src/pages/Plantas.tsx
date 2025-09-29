@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ref, onValue } from 'firebase/database';
 import { useAuth } from '../contexts/AuthContext';
 import { database } from '../services/firebase';
@@ -20,38 +20,70 @@ interface Planta {
 
 export function Plantas() {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [plantas, setPlantas] = useState<Planta[]>([]);
   const [busca, setBusca] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setLoading(false);
+      return;
+    }
 
     const plantasRef = ref(database, `plantas/${user.uid}`);
     const unsubscribe = onValue(plantasRef, (snapshot) => {
+      setLoading(false);
       if (snapshot.exists()) {
         const plantasData = Object.entries(snapshot.val()).map(([id, data]) => ({
           id,
-          ...(data as any)
+          ...(data as Omit<Planta, 'id'>)
         }));
         setPlantas(plantasData);
+      } else {
+        setPlantas([]);
       }
+    }, (error) => {
+      console.error('Erro ao carregar plantas:', error);
+      setLoading(false);
     });
 
     return () => unsubscribe();
   }, [user]);
 
   const plantasFiltradas = plantas.filter(planta =>
-    planta.nome.toLowerCase().includes(busca.toLowerCase())
+    planta.nome.toLowerCase().includes(busca.toLowerCase()) ||
+    planta.tipo.toLowerCase().includes(busca.toLowerCase())
   );
+
+  const handleNovaPlanta = () => {
+    navigate('/plantas/nova');
+  };
+
+  const handleVerDetalhes = (plantaId: string) => {
+    alert(`Detalhes da planta ${plantaId} - Funcionalidade em desenvolvimento`);
+  };
+
+  if (loading) {
+    return (
+      <div className="plantas-container">
+        <div className="loading-container">
+          <div className="spinner"></div>
+          <p>Carregando plantas...</p>
+        </div>
+        <BottomNavigation />
+      </div>
+    );
+  }
 
   return (
     <div className="plantas-container">
       <header className="plantas-header">
         <h1>Minhas Plantas</h1>
         <p>Gerencie suas plantas cadastradas</p>
-        <Link to="/plantas/nova" className="btn-primary">
+        <button onClick={handleNovaPlanta} className="btn-primary">
           + Nova Planta
-        </Link>
+        </button>
       </header>
 
       <div className="search-bar">
@@ -66,7 +98,7 @@ export function Plantas() {
       </div>
 
       <div className="plantas-info">
-        <span>{plantasFiltradas.length} plantas encontradas</span>
+        <span>{plantasFiltradas.length} planta{plantasFiltradas.length !== 1 ? 's' : ''} encontrada{plantasFiltradas.length !== 1 ? 's' : ''}</span>
       </div>
 
       <div className="plantas-grid">
@@ -88,9 +120,12 @@ export function Plantas() {
                 <span>💡 {planta.luminosidade}</span>
                 <span>💧 {planta.rega}</span>
               </div>
-              <Link to={`/plantas/${planta.id}`} className="btn-secondary">
+              <button 
+                onClick={() => handleVerDetalhes(planta.id)} 
+                className="btn-secondary"
+              >
                 Ver detalhes
-              </Link>
+              </button>
             </div>
           </div>
         ))}
@@ -101,9 +136,9 @@ export function Plantas() {
           <div className="empty-icon">🌱</div>
           <h3>Nenhuma planta encontrada</h3>
           <p>Comece adicionando sua primeira planta</p>
-          <Link to="/plantas/nova" className="btn-primary">
+          <button onClick={handleNovaPlanta} className="btn-primary">
             Adicionar Primeira Planta
-          </Link>
+          </button>
         </div>
       )}
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ref, onValue } from 'firebase/database';
 import { useAuth } from '../contexts/AuthContext';
 import { database } from '../services/firebase';
@@ -15,6 +15,8 @@ interface Estufa {
   plantas: number;
   temperatura: number;
   umidade: number;
+  usuarioId: string;
+  dataCriacao: string;
   sensores: {
     temperatura: { status: string; valor: number };
     umidadeAr: { status: string; valor: number };
@@ -25,20 +27,31 @@ interface Estufa {
 
 export function Estufas() {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [estufas, setEstufas] = useState<Estufa[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setLoading(false);
+      return;
+    }
 
     const estufasRef = ref(database, `estufas/${user.uid}`);
     const unsubscribe = onValue(estufasRef, (snapshot) => {
+      setLoading(false);
       if (snapshot.exists()) {
         const estufasData = Object.entries(snapshot.val()).map(([id, data]) => ({
           id,
-          ...(data as any)
+          ...(data as Omit<Estufa, 'id'>)
         }));
         setEstufas(estufasData);
+      } else {
+        setEstufas([]);
       }
+    }, (error) => {
+      console.error('Erro ao carregar estufas:', error);
+      setLoading(false);
     });
 
     return () => unsubscribe();
@@ -53,18 +66,40 @@ export function Estufas() {
     }
   };
 
+  const handleNovaEstufa = () => {
+    navigate('/estufas/nova');
+  };
+
+  const handleVerDetalhes = (estufaId: string) => {
+    // Por enquanto vamos apenas mostrar um alerta
+    // Futuramente pode navegar para uma página de detalhes
+    alert(`Detalhes da estufa ${estufaId} - Funcionalidade em desenvolvimento`);
+  };
+
+  if (loading) {
+    return (
+      <div className="estufas-container">
+        <div className="loading-container">
+          <div className="spinner"></div>
+          <p>Carregando estufas...</p>
+        </div>
+        <BottomNavigation />
+      </div>
+    );
+  }
+
   return (
     <div className="estufas-container">
       <header className="estufas-header">
         <h1>Minhas Estufas</h1>
         <p>Gerencie suas estufas cadastradas</p>
-        <Link to="/estufas/nova" className="btn-primary">
+        <button onClick={handleNovaEstufa} className="btn-primary">
           + Nova Estufa
-        </Link>
+        </button>
       </header>
 
       <div className="estufas-info">
-        <span>{estufas.length} estufas cadastradas</span>
+        <span>{estufas.length} estufa{estufas.length !== 1 ? 's' : ''} cadastrada{estufas.length !== 1 ? 's' : ''}</span>
       </div>
 
       <div className="estufas-list">
@@ -77,7 +112,7 @@ export function Estufas() {
                 <span className="estufa-localizacao">📍 {estufa.localizacao}</span>
               </div>
               <div className="estufa-plants">
-                {estufa.plantas} plantas
+                {estufa.plantas} planta{estufa.plantas !== 1 ? 's' : ''}
               </div>
             </div>
 
@@ -135,9 +170,12 @@ export function Estufas() {
               <p className="estufa-descricao">{estufa.descricao}</p>
             )}
 
-            <Link to={`/estufas/${estufa.id}`} className="btn-secondary">
+            <button 
+              onClick={() => handleVerDetalhes(estufa.id)} 
+              className="btn-secondary"
+            >
               Ver Detalhes
-            </Link>
+            </button>
           </div>
         ))}
       </div>
@@ -146,10 +184,10 @@ export function Estufas() {
         <div className="empty-state">
           <div className="empty-icon">🏡</div>
           <h3>Nenhuma estufa cadastrada</h3>
-          <p>Comece criando sua primeira estufa</p>
-          <Link to="/estufas/nova" className="btn-primary">
+          <p>Comece criando sua primeira estufa para monitorar suas plantas</p>
+          <button onClick={handleNovaEstufa} className="btn-primary">
             Criar Primeira Estufa
-          </Link>
+          </button>
         </div>
       )}
 

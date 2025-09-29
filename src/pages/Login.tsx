@@ -1,5 +1,4 @@
-// src/pages/Login.tsx
-import { useState, type FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import './Auth.css';
@@ -9,8 +8,14 @@ export function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+  const { login, user } = useAuth();
   const navigate = useNavigate();
+
+  // Se já estiver logado, redireciona para a página inicial
+  if (user) {
+    navigate('/inicial');
+    return null;
+  }
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -31,6 +36,7 @@ export function Login() {
     <div className="auth-container">
       <div className="auth-card">
         <div className="auth-header">
+          <div className="auth-logo">🌿</div>
           <h1>GreenSync</h1>
           <p>Faça login em sua conta</p>
         </div>
@@ -70,6 +76,9 @@ export function Login() {
         <div className="auth-footer">
           <p>
             Não tem uma conta? <Link to="/cadastro">Cadastre-se</Link>
+          </p>
+          <p>
+            <Link to="/">← Voltar para a página inicial</Link>
           </p>
         </div>
       </div>

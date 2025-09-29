@@ -1,0 +1,123 @@
+.index-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.index-content {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+}
+
+.logo-section {
+  margin-bottom: 30px;
+}
+
+.project-name {
+  color: #2c5530;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.logo-image {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.project-tagline {
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.buttons-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.sobre-button {
+  display: inline-block;
+  background: transparent;
+  color: #2c5530;
+  border: 2px solid #2c5530;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.sobre-button:hover {
+  background: #2c5530;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.cta-button {
+  display: inline-block;
+  background: #2c5530;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.cta-button:hover {
+  background: #1e3a22;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(44, 85, 48, 0.3);
+}
+
+.index-footer {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.index-footer p {
+  color: #999;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .index-content {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+  
+  .logo-image {
+    width: 100px;
+  }
+  
+  .project-name {
+    font-size: 2rem;
+  }
+  
+  .project-tagline {
+    font-size: 1.1rem;
+  }
+}

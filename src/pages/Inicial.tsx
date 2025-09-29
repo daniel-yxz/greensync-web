@@ -1,11 +1,10 @@
-// src/pages/Inicial.tsx
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ref, onValue } from 'firebase/database';
 import { useAuth } from '../contexts/AuthContext';
 import { database } from '../services/firebase';
 import { BottomNavigation } from '../components/BottomNavigation';
-import './Inicial.css';
+import './Inicial.css'; // Verifique se este import está correto
 
 export function Inicial() {
   const { user, userData } = useAuth();
@@ -72,14 +71,14 @@ export function Inicial() {
       <section className="quick-actions">
         <h3>Ações Rápidas</h3>
         <div className="actions-grid">
-          <Link to="/plantas/nova" className="action-card">
-            <div className="action-icon">➕</div>
-            <span>Nova Planta</span>
+          <Link to="/plantas" className="action-card">
+            <div className="action-icon">🌱</div>
+            <span>Minhas Plantas</span>
           </Link>
           
-          <Link to="/estufas/nova" className="action-card">
+          <Link to="/estufas" className="action-card">
             <div className="action-icon">🏡</div>
-            <span>Nova Estufa</span>
+            <span>Minhas Estufas</span>
           </Link>
           
           <Link to="/perfil" className="action-card">

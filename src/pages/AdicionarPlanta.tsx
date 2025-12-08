@@ -82,7 +82,7 @@ export function AdicionarPlanta() {
               value={formData.nome}
               onChange={handleChange}
               required
-              placeholder="Ex: Suculenta, Orquídea, Tomate..."
+              placeholder="Ex: Vegetal, Legume, Erva..."
               maxLength={50}
             />
             <small>Máximo 50 caracteres</small>
@@ -98,11 +98,10 @@ export function AdicionarPlanta() {
               required
             >
               <option value="">Selecione um tipo</option>
-              <option value="Suculenta">Suculenta</option>
-              <option value="Orquídea">Orquídea</option>
-              <option value="Tomate">Tomate</option>
-              <option value="Alface">Alface</option>
-              <option value="Manjericão">Manjericão</option>
+              <option value="Vegetal">Vegetal</option>
+              <option value="Legume">Legume</option>
+              <option value="Erva">Erva</option>
+              <option value="Flor">Flor</option>
               <option value="Outro">Outro</option>
             </select>
           </div>

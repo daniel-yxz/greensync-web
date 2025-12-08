@@ -36,7 +36,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       
       if (user) {
         try {
-          const userRef = ref(database, `users/${user.uid}`);
+          const userRef = ref(database, `usuarios/${user.uid}`);
           const snapshot = await get(userRef);
           
           if (snapshot.exists()) {
@@ -69,7 +69,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       
-      const userRef = ref(database, `users/${user.uid}`);
+      const userRef = ref(database, `usuarios/${user.uid}`);
       await update(userRef, {
         lastLogin: new Date().toISOString()
       });
@@ -94,7 +94,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         lastLogin: new Date().toISOString()
       };
 
-      const userRef = ref(database, `users/${user.uid}`);
+      const userRef = ref(database, `usuarios/${user.uid}`);
       await set(userRef, userData);
       
     } catch (error: any) {
@@ -114,7 +114,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!user) throw new Error('Nenhum usuário logado');
     
     try {
-      const userRef = ref(database, `users/${user.uid}`);
+      const userRef = ref(database, `usuarios/${user.uid}`);
       await update(userRef, {
         ...data,
         updatedAt: new Date().toISOString()
